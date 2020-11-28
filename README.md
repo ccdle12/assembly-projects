@@ -8,12 +8,12 @@ apt-get install nasm
 
 ### Running
 
-```
+```console
 nasm -f elf64 -o hell_world.o hello_world.asm
 ```
 
 Link the .o file to make it executable
 
-```sh
+```console
 ld hello_world.o -o hello_world
 ```
