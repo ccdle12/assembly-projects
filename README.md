@@ -6,10 +6,16 @@
 apt-get install nasm
 ```
 
-### Running
+### Run
 
 ```console
-nasm -f elf64 -o hell_world.o hello_world.asm
+make
+```
+
+### Manually Build and run
+
+```console
+nasm -f elf64 -o hello_world.o hello_world.asm
 ```
 
 Link the .o file to make it executable
@@ -17,3 +23,5 @@ Link the .o file to make it executable
 ```console
 ld hello_world.o -o hello_world
 ```
+
+
