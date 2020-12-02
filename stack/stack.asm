@@ -1,6 +1,3 @@
-; This example shows how we can perform arithmetic operations and also how to
-; display ASCII characters on sys_write.
-
 section .data
     digit db 0,10 ; store x2 bytes at [digit] - (0, 10). 10 is the new line character
 
@@ -8,10 +5,16 @@ section .text
     global _start
 
 _start:
-    call _divExample
-    call _addExample
-    call _subExample
-    call _incExample
+    push 4
+    push 8
+    push 3
+
+    pop rax
+    call _printRAXDigit
+    pop rax
+    call _printRAXDigit
+    pop rax
+    call _printRAXDigit
 
     mov rax, 60
     mov rdi, 0
@@ -37,29 +40,3 @@ _printRAXDigit:
     mov rdx, 2
     syscall
     ret
-
-_divExample:
-    mov rax, 6
-    mov rbx, 2
-    div rbx
-    call _printRAXDigit
-    ret
-
-_addExample:
-    mov rax, 1
-    add rax, 4
-    call _printRAXDigit
-    ret
-
-_subExample:
-    mov rax, 10
-    sub rax, 5
-    call _printRAXDigit
-    ret
-
-_incExample:
-    mov rax, 2
-    inc rax
-    call _printRAXDigit
-    ret
-
