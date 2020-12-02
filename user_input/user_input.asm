@@ -22,33 +22,32 @@ _start: ; labels this part of code, _start is required since the linker will
     syscall
 
 _printText1:
-    mov rax, 1
-    mov rdi, 1
+    mov rax, 1 ; sys_write
+    mov rdi, 1 ; stdout
     mov rsi, text1
     mov rdx, 24
     syscall
     ret
 
 _getName:
-    mov rax, 0
-    mov rdi, 0
+    mov rax, 0 ; sys_read
+    mov rdi, 0 ; stdin
     mov rsi, name
     mov rdx, 16
     syscall
     ret
 
 _printText2:
-    mov rax, 1
-    mov rdi, 1
+    mov rax, 1 ; sys_write
+    mov rdi, 1 ; stdout
     mov rsi, text2
     mov rdx, 13
     syscall
     ret
 
 _printName:
-    mov rax, 1
-    mov rax, 1
-    mov rsi, name
+    mov rax, 1 ; sys_out
+    mov rsi, name ; Load value at name memory address
     mov rdx, 16
     syscall
     ret
